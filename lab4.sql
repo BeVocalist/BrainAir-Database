@@ -1,50 +1,59 @@
 
-SOURCE BrianAir_schema.sql;
-
-/*delimiter//
-DROP PROCEDURE IF EXISTS addYear;
+/*SOURCE BrianAir_schema.sql;*/
+delimiter $$
+DROP PROCEDURE IF exists addYear;
 DROP PROCEDURE IF EXISTS addDay;
 DROP PROCEDURE IF EXISTS addDestination;
 DROP PROCEDURE IF EXISTS addRoute;
-DROP PROCEDURE IF EXISTS addFlight;
+DROP PROCEDURE IF EXISTS addFlight $$
 
-delimiter ;*/
+delimiter ;
 
-delimiter //
+delimiter $$
+
 CREATE PROCEDURE addYear(IN year INT,IN factor FLOAT)
 BEGIN
 
 INSERT INTO Year(year,yearfactor)
 VALUES(year,factor);
 
-END//
+END $$
 
 delimiter ;
-GO;
 
-delimiter//
+
+/*--------------------------------------------------------*/
+
+delimiter $$
+
 CREATE PROCEDURE addDay(IN year INT,IN day VARCHAR(10),IN factor FLOAT)
 BEGIN
 
 INSERT INTO Weekday(year,day,factor)
 VALUES(year,day,factor);
 
-END//
+END $$
 
 delimiter ;
-GO;
+/*--------------------------------------------------------*/
 
-delimiter //
+
+delimiter $$
 CREATE PROCEDURE addDestination(IN airportcode VARCHAR(3), IN name VARCHAR(30), IN country VARCHAR(30))
 BEGIN
 
 INSERT INTO Destination(airport_code,airport_name,country)
 VALUES(airportcode,name,country);
 
-END//
+END $$
 delimiter ;
-GO;
 
+SELECT "Trying to add 2 destinations" AS "Message";
+CALL addDestination("MIT","Minas Tirith","Mordor");
+CALL addDestination("HOB","Hobbiton","The Shire");
+
+/*--------------------------------------------------------*/
+/*
 delimiter//
 CREATE PROCEDURE addRoute(IN departureairportcode VARCHAR(3), IN arrivalairportcode VARCHAR(3),IN year int, IN day varchar(10), IN routeprice float)
 BEGIN
@@ -70,5 +79,5 @@ END//
 
 delimiter;
 GO;
-
-SOURCE Question3.sql;
+*/
+/*SOURCE Question3.sql;*/

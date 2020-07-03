@@ -42,7 +42,7 @@ CREATE TABLE Weekday
 CREATE TABLE Destination
 (
   airport_code varchar(3),
-  airpoert_name varchar(30),
+  airport_name varchar(30),
   country varchar(30),
 
   CONSTRAINT pk_Destination primary key(airport_code)
