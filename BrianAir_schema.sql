@@ -42,7 +42,7 @@ CREATE TABLE Weekday
 CREATE TABLE Destination
 (
   airport_code varchar(3),
-  airport_name varchar(30),
+  airportname varchar(30),
   country varchar(30),
 
   CONSTRAINT pk_Destination primary key(airport_code)
@@ -54,7 +54,6 @@ CREATE TABLE Route
   departure_airport_code varchar(3),
   arrival_airport_code varchar(3),
   year int,
-  day varchar(10),
   route_price FLOAT,
 
   CONSTRAINT pk_Route primary key(departure_airport_code,arrival_airport_code)
@@ -68,7 +67,7 @@ CREATE TABLE Weeklyflight
   day varchar(10),
   departure_time TIME,
 
-  CONSTRAINT pk_Route primary key(departure_airport_code,arrival_airport_code)
+  CONSTRAINT pk_Weeklyflight primary key(departure_airport_code,arrival_airport_code)
 );
 
 CREATE TABLE Flight
@@ -82,7 +81,7 @@ CREATE TABLE Flight
   flight_number int,
   existseat int,
 
-  CONSTRAINT pk_Route primary key(flight_number)
+  CONSTRAINT pk_Flight primary key(flight_number)
 );
 
 CREATE TABLE Reservation
