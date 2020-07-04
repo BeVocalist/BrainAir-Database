@@ -75,9 +75,3 @@ VALUES(departure_airport_code,arrival_airport_code,year,day,departure_time);
 END $$
 
 delimiter ;
-
-SELECT "Trying to add 4 weeklyschedule flights" AS "Message";
-CALL addFlight("MIT","HOB", 2010, "Monday", "09:00:00");
-CALL addFlight("HOB","MIT", 2010, "Tuesday", "10:00:00");
-CALL addFlight("MIT","HOB", 2011, "Sunday", "11:00:00");
-CALL addFlight("HOB","MIT", 2011, "Sunday", "12:00:00");
